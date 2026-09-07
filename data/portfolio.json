@@ -1,0 +1,191 @@
+{
+  "home": {
+    "displayName": "Nirmal C",
+    "roles": [
+      "AI & Data Science Student",
+      "Machine Learning Enthusiast",
+      "Frontend Developer",
+      "Problem Solver"
+    ],
+    "heroIntro": "Passionate about the intersection of Artificial Intelligence, Data Science, and Frontend Development. Eager to solve real-world problems through data-driven and user-centric solutions.",
+    "profileImg": "profile.jpeg",
+    "iamTag": "Student & Developer"
+  },
+  "about": {
+    "description": "Hi! I'm Nirmal C, a first-year B.Tech AI & Data Science student at KPR Institute. I'm deeply passionate about Artificial Intelligence, Machine Learning, and Frontend Development. I love building projects that bridge technology and real-world impact, participating in hackathons, and continuously learning new skills to stay ahead in the fast-evolving tech landscape.",
+    "focus": "React, Gen AI, UI/UX & Data Science foundations",
+    "goals": "AI/ML Engineer or Full-Stack Developer with AI integration",
+    "educationSummary": "B.Tech AI & DS (CGPA: 8.06) · KPR Institute · 2025–2029",
+    "interestsSummary": "AI/ML, Web Dev, Open Source, Hackathons, Design"
+  },
+  "skills": [
+    { "id": "sk-1", "name": "HTML5", "category": "frontend", "desc": "Semantic, accessible markup for modern web", "icon": "fab fa-html5", "color": "#e34f26" },
+    { "id": "sk-2", "name": "CSS3", "category": "frontend", "desc": "Flexbox, Grid, animations & responsive design", "icon": "fab fa-css3-alt", "color": "#264de4" },
+    { "id": "sk-3", "name": "Bootstrap 5", "category": "frontend", "desc": "Rapid responsive UI components", "icon": "fab fa-bootstrap", "color": "#7952b3" },
+    { "id": "sk-4", "name": "JavaScript", "category": "frontend", "desc": "DOM manipulation, ES6+, interactive UIs", "icon": "fab fa-js-square", "color": "#f7df1e" },
+    { "id": "sk-5", "name": "Python", "category": "programming", "desc": "Scripting, data analysis & ML experiments", "icon": "fab fa-python", "color": "#3776ab" },
+    { "id": "sk-6", "name": "C", "category": "programming", "desc": "Fundamentals: pointers, memory management", "icon": "bi bi-c-circle-fill", "color": "#00599c" },
+    { "id": "sk-7", "name": "NumPy", "category": "datascience", "desc": "Numerical computing & array operations", "icon": "bi bi-grid-3x3", "color": "#4dabcf" },
+    { "id": "sk-8", "name": "Pandas", "category": "datascience", "desc": "Data manipulation & analysis", "icon": "bi bi-table", "color": "#e70488" },
+    { "id": "sk-9", "name": "Matplotlib", "category": "datascience", "desc": "Data visualization & plotting", "icon": "bi bi-bar-chart-fill", "color": "#11557c" },
+    { "id": "sk-10", "name": "SQL", "category": "database", "desc": "Queries, joins & relational databases", "icon": "bi bi-database-fill", "color": "#f29111" },
+    { "id": "sk-11", "name": "Git", "category": "tools", "desc": "Version control & branching", "icon": "fab fa-git-alt", "color": "#f05032" },
+    { "id": "sk-12", "name": "GitHub", "category": "tools", "desc": "Collaboration, repos & open source", "icon": "fab fa-github", "color": "#181717" },
+    { "id": "sk-13", "name": "VS Code", "category": "tools", "desc": "Primary development environment", "icon": "bi bi-code-square", "color": "#007acc" },
+    { "id": "sk-14", "name": "Cybersecurity", "category": "tools", "desc": "Network security, Fortinet NSE 1 & 2 certified", "icon": "bi bi-shield-lock-fill", "color": "#0284c7" },
+    { "id": "sk-15", "name": "MATLAB", "category": "tools", "desc": "MathWorks Onramp certified scientific computations", "icon": "bi bi-cpu-fill", "color": "#d97706" },
+    { "id": "sk-16", "name": "React", "category": "learning", "desc": "Component-based UI development", "icon": "fab fa-react", "color": "#0284c7", "isLearning": true },
+    { "id": "sk-17", "name": "UI/UX", "category": "learning", "desc": "User experience & interface design principles", "icon": "bi bi-palette-fill", "color": "#a855f7", "isLearning": true },
+    { "id": "sk-18", "name": "Gen AI", "category": "learning", "desc": "Generative AI tools, prompting & LLM concepts", "icon": "bi bi-robot", "color": "#0369a1", "isLearning": true }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "Tourism & Travel Booking Platform",
+      "tag": "web",
+      "badge": "Tourism Web App",
+      "badgeIcon": "bi bi-globe-americas",
+      "desc": "A user-friendly, responsive tourism portal to explore popular travel spots and book destinations. Built with a lightweight backend booking workflow, interactive destination cards, and intuitive responsive UI.",
+      "image": "",
+      "placeholderIcon": "bi bi-compass-fill",
+      "tags": ["HTML5", "CSS3", "JS", "Bootstrap", "Backend"],
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/Nirmal-46"
+    },
+    {
+      "id": "proj-2",
+      "title": "Personal Portfolio Website",
+      "tag": "web",
+      "badge": "Web Development",
+      "badgeIcon": "bi bi-layout-text-window-reverse",
+      "desc": "A dark/light theme cyber-aesthetic portfolio with responsive layout, custom particle canvas, certificate view modal, and dynamic interactivity. Designed and coded from scratch using vanilla CSS and JavaScript.",
+      "image": "responsive.PNG",
+      "placeholderIcon": "",
+      "tags": ["HTML5", "CSS3", "JavaScript", "Bootstrap 5"],
+      "liveUrl": "index.html",
+      "githubUrl": "https://github.com/Nirmal-46"
+    },
+    {
+      "id": "proj-3",
+      "title": "Todo List App",
+      "tag": "web",
+      "badge": "Task Manager",
+      "badgeIcon": "bi bi-check-circle-fill",
+      "desc": "A clean, responsive, and intuitive task management application with real-time task additions, completion toggling, priority filters, and persistent local storage.",
+      "image": "",
+      "placeholderIcon": "bi bi-check2-square",
+      "tags": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "LocalStorage"],
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/Nirmal-46"
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp-1",
+      "role": "Cybersecurity Awareness & Training Participant",
+      "org": "Fortinet Training Institute",
+      "period": "2025",
+      "desc": "Completed Fortinet NSE 1 & NSE 2 certifications covering modern threat vectors, cloud security architectures, and enterprise defence strategies.",
+      "tags": ["Cybersecurity", "Network Defence", "Fortinet NSE 1 & 2"]
+    },
+    {
+      "id": "exp-2",
+      "role": "HDCA 1-Year Diploma Trainee",
+      "org": "CSC Computer Software College",
+      "period": "2024 – 2025",
+      "desc": "Completed 1-year Honours Diploma in Computer Applications (HDCA) with Grade 'A'. Covered office automation, database management, and programming foundations.",
+      "tags": ["HDCA", "Grade 'A'", "Database Management", "Computer Applications"]
+    },
+    {
+      "id": "exp-3",
+      "role": "District Athlete & Zonal Runner-Up",
+      "org": "District & Zonal Athletic Meets",
+      "period": "2024 – 2025",
+      "desc": "Achieved Zonal Runner-Up in the 400m Hurdles track event and competed at the District Level athletic championship, demonstrating discipline, perseverance, and high performance.",
+      "tags": ["Athletics", "400m Hurdles", "Zonal Runner-Up", "District Level"]
+    }
+  ],
+  "achievements": [
+    {
+      "id": "ach-1",
+      "title": "Fortinet NSE 1 Certification",
+      "org": "Fortinet Training Institute",
+      "date": "2025",
+      "icon": "bi bi-shield-lock-fill",
+      "image": "Nse1.PNG",
+      "desc": "Certified in Information Security Awareness. Verified fundamental cybersecurity threat landscape principles."
+    },
+    {
+      "id": "ach-2",
+      "title": "Fortinet NSE 2 Certification",
+      "org": "Fortinet Training Institute",
+      "date": "2025",
+      "icon": "bi bi-shield-check",
+      "image": "Nse2.PNG",
+      "desc": "Certified in cybersecurity solutions: Cloud Security, Zero Trust, and Security-driven Networking."
+    },
+    {
+      "id": "ach-3",
+      "title": "HDCA Diploma (Grade 'A')",
+      "org": "CSC Computer Software College",
+      "date": "2024 – 2025",
+      "icon": "bi bi-award-fill",
+      "image": "csc.PNG",
+      "desc": "Awarded Grade 'A' upon completion of the 1-year Honours Diploma in Computer Applications (HDCA)."
+    },
+    {
+      "id": "ach-4",
+      "title": "MATLAB Onramp Certification",
+      "org": "MathWorks",
+      "date": "2026",
+      "icon": "bi bi-cpu-fill",
+      "image": "Matlab.PNG",
+      "desc": "Certified in MATLAB scientific computations, matrix operations, and algorithm prototyping."
+    },
+    {
+      "id": "ach-5",
+      "title": "400m Hurdles Zonal Runner-Up",
+      "org": "Zonal Athletics Meet · District Participant",
+      "date": "2024 – 2025",
+      "icon": "bi bi-trophy-fill",
+      "image": "",
+      "desc": "Earned Zonal Runner-Up in the 400m Hurdles track & field event and competed at the District Level."
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-1",
+      "degree": "B.Tech – Artificial Intelligence & Data Science",
+      "institution": "KPR Institute of Engineering and Technology",
+      "period": "2025 – 2029",
+      "badge": "CGPA: 8.06",
+      "desc": "Pursuing a Bachelor of Technology in Artificial Intelligence & Data Science. Core subjects include Machine Learning, Data Structures, Python Programming, Database Management, Statistics, and AI fundamentals.",
+      "highlights": ["CGPA: 8.06", "Machine Learning", "Data Science", "Python", "AI Fundamentals", "Statistics", "DBMS"]
+    },
+    {
+      "id": "edu-2",
+      "degree": "Higher Secondary Education (HSC)",
+      "institution": "Kongu Matric Higher Secondary School",
+      "period": "Completed 2025",
+      "badge": "State Board",
+      "desc": "Completed Class 12 under the Tamil Nadu State Board with a strong focus on Mathematics, Physics, Chemistry, and Computer Science.",
+      "highlights": ["State Board", "Mathematics", "Physics", "Computer Science", "Chemistry"]
+    },
+    {
+      "id": "edu-3",
+      "degree": "NxtWave Academy 4.0",
+      "institution": "NxtWave Immersive Learning — Industry-Ready Developer Programme",
+      "period": "2025 – Present",
+      "badge": "Developer Track",
+      "desc": "Enrolled in NxtWave's intensive full-stack developer programme (CCBP 4.0). Building industry-ready skills in Python, JavaScript, React, SQL and modern web development.",
+      "highlights": ["Python", "JavaScript", "React", "SQL", "Full-Stack Dev"]
+    }
+  ],
+  "contact": {
+    "email": "captainculprit2007@gmail.com",
+    "location": "Tamil Nadu, India",
+    "github": "https://github.com/Nirmal-46",
+    "linkedin": "https://www.linkedin.com/in/nirmal-here?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    "instagram": "https://www.instagram.com/_captain_culprit_18?igsh=MW9lMDI4Y3VrNnJkcQ%3D%3D&utm_source=qr"
+  }
+}

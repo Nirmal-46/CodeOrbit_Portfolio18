@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate View — Nirmal C</title>
+  <meta name="description" content="View verified certificate credential — Nirmal C Portfolio" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <script>
+    (function () {
+      const stored = localStorage.getItem('portfolio-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', stored);
+    })();
+  </script>
+
+  <style>
+    :root {
+      --bg-primary: #090d16;
+      --bg-secondary: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --accent-a: #ef4444;
+      --accent-b: #3b82f6;
+      --accent-c: #06b6d4;
+      --accent-d: #f43f5e;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-glass: rgba(239, 68, 68, 0.22);
+      --border-glass-card: rgba(59, 130, 246, 0.35);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      --font-head: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --glow-cyan: 0 0 25px rgba(59, 130, 246, 0.40);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.96);
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --border-glass: rgba(37, 99, 235, 0.15);
+      --border-glass-card: rgba(37, 99, 235, 0.25);
+    }
+
+    [data-theme="light"] body {
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -5%, rgba(59, 130, 246, 0.08) 0%, transparent 65%),
+        radial-gradient(circle at 10% 25%, rgba(239, 68, 68, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 90% 45%, rgba(6, 182, 212, 0.07) 0%, transparent 50%),
+        #f8fafc;
+    }
+
+    [data-theme="light"] .cert-navbar {
+      background: rgba(248, 250, 252, 0.94);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(239, 68, 68, 0.20) 0%, transparent 60%),
+        radial-gradient(circle at 15% 35%, rgba(59, 130, 246, 0.16) 0%, transparent 50%),
+        radial-gradient(circle at 85% 65%, rgba(6, 182, 212, 0.14) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #0d1527 0%, #0a0f1d 55%, #060913 100%),
+        #060913;
+      background-attachment: fixed;
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background glows */
+    .bg-glow {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.22;
+    }
+    .bg-glow-1 { top: -150px; left: -150px; background: #ef4444; }
+    .bg-glow-2 { bottom: -150px; right: -150px; background: #3b82f6; }
+
+    /* Top Navigation Bar with Back Arrow */
+    .cert-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.75rem;
+      background: rgba(9, 13, 22, 0.90);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-glass);
+      gap: 1rem;
+    }
+
+    .btn-back-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      background: rgba(59, 130, 246, 0.16);
+      border: 1px solid rgba(59, 130, 246, 0.45);
+      border-radius: 50%;
+      color: #38bdf8;
+      font-size: 1.25rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.35);
+    }
+    .btn-back-arrow i {
+      font-size: 1.25rem;
+      transition: transform 0.2s ease;
+    }
+    .btn-back-arrow:hover {
+      background: linear-gradient(135deg, #ef4444, #3b82f6);
+      border-color: transparent;
+      color: #ffffff;
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.75);
+      transform: translateX(-4px) scale(1.06);
+    }
+    .btn-back-arrow:hover i {
+      transform: translateX(-2px);
+    }
+
+    .brand-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .brand-title span {
+      background: linear-gradient(135deg, #ef4444, #3b82f6, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(239, 68, 68, 0.14);
+      border: 1px solid var(--border-glass);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+    .btn-action:hover {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      border-color: transparent;
+      color: #ffffff;
+      box-shadow: 0 0 16px rgba(239, 68, 68, 0.55);
+      transform: translateY(-2px);
+    }
+
+    /* Main Container */
+    .main-content {
+      flex: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Certificate Showcase Stage */
+    .cert-showcase-stage {
+      position: relative;
+      border-radius: var(--radius-xl);
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass-card);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      padding: 1.5rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(239, 68, 68, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .cert-showcase-stage:hover {
+      border-color: rgba(239, 68, 68, 0.55);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(239, 68, 68, 0.4);
+    }
+
+    .cert-image-frame {
+      width: 100%;
+      max-height: 72vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .cert-image {
+      max-width: 100%;
+      max-height: 70vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+    .cert-image:hover {
+      transform: scale(1.015);
+    }
+
+    /* Meta Info Card */
+    .cert-meta-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .cert-meta-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .cert-title {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .cert-tags {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .cert-pill {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      background: rgba(239, 68, 68, 0.18);
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      color: #ffffff;
+    }
+
+    .cert-meta-right {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-glow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.75rem 2rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .btn-glow-primary {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #991b1b 100%);
+      color: #ffffff;
+      border: none;
+      font-weight: 700;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+    }
+    .btn-glow-primary:hover {
+      background: linear-gradient(135deg, #ffffff 0%, #fee2e2 100%);
+      box-shadow: 0 0 35px rgba(239, 68, 68, 0.85), 0 0 15px rgba(255, 255, 255, 0.6);
+      transform: translateY(-2px);
+      color: #000000;
+    }
+    .btn-glow-primary i {
+      transition: transform 0.2s ease;
+    }
+    .btn-glow-primary:hover i {
+      transform: translateX(-4px);
+    }
+
+    .btn-outline {
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid var(--border-glass-card);
+      color: var(--text-secondary);
+    }
+    .btn-outline:hover {
+      background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+      border-color: #38bdf8;
+      color: #ffffff;
+      box-shadow: 0 0 24px rgba(37, 99, 235, 0.75), 0 0 10px rgba(6, 182, 212, 0.45);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .cert-navbar {
+        padding: 0.75rem 1rem;
+      }
+      .brand-title {
+        display: none;
+      }
+      .main-content {
+        padding: 1rem 0.75rem 2rem;
+      }
+      .cert-meta-card {
+        padding: 1rem 1.25rem;
+      }
+      .cert-title {
+        font-size: 1.2rem;
+      }
+      .cert-display-card {
+        padding: 0.6rem;
+      }
+      .cert-image {
+        max-height: 60vh;
+      }
+      .btn-glow {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- Sticky Top Navigation with Prominent Back Arrow -->
+  <header class="cert-navbar">
+    <a href="index.html#achievements" id="btn-top-back" class="btn-back-arrow" aria-label="Back to Achievements" title="Back to Achievements">
+      <i class="bi bi-arrow-left"></i>
+    </a>
+
+    <a href="index.html#achievements" class="brand-title">
+      Nirmal C <span>· Portfolio</span>
+    </a>
+
+    <div class="nav-actions">
+      <a href="#" id="btn-download" download class="btn-action" title="Download certificate image" aria-label="Download certificate">
+        <i class="bi bi-download"></i>
+      </a>
+      <a href="#" id="btn-raw" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open full resolution image" aria-label="Open original image">
+        <i class="bi bi-arrows-fullscreen"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Certificate View -->
+  <main class="main-content">
+    <section class="cert-meta-card">
+      <div class="cert-heading-row">
+        <h1 class="cert-title" id="cert-title">Certificate Preview</h1>
+        <span class="cert-badge" id="cert-date">
+          <i class="bi bi-calendar3"></i> 2026
+        </span>
+      </div>
+      <div class="cert-org-row">
+        <i class="bi bi-patch-check-fill"></i>
+        <span id="cert-org">Verified Credential Issuer</span>
+      </div>
+    </section>
+
+    <!-- Certificate Image -->
+    <section class="cert-display-card">
+      <img id="cert-img" class="cert-image" src="" alt="Certificate" />
+    </section>
+
+    <!-- Bottom Action Area -->
+    <div class="cert-bottom-bar">
+      <a href="#" id="btn-open-new-tab" target="_blank" rel="noopener noreferrer" class="btn-glow btn-outline">
+        <i class="bi bi-box-arrow-up-right"></i>
+        <span>Open Raw Image</span>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const certSrc = urlParams.get('cert') || urlParams.get('img') || 'Nse1.PNG';
+      const certTitle = urlParams.get('title') || 'Certificate Credential';
+      const certOrg = urlParams.get('org') || 'Verified Institution';
+      const certDate = urlParams.get('date') || '2026';
+
+      // Update elements
+      const imgEl = document.getElementById('cert-img');
+      const titleEl = document.getElementById('cert-title');
+      const orgEl = document.getElementById('cert-org');
+      const dateEl = document.getElementById('cert-date');
+      const downloadBtn = document.getElementById('btn-download');
+      const rawBtn = document.getElementById('btn-raw');
+      const newTabBtn = document.getElementById('btn-open-new-tab');
+      const topBackBtn = document.getElementById('btn-top-back');
+
+      if (imgEl) {
+        imgEl.src = certSrc;
+        imgEl.alt = `${certTitle} - ${certOrg}`;
+      }
+      if (titleEl) titleEl.textContent = certTitle;
+      if (orgEl) orgEl.textContent = certOrg;
+      if (dateEl) dateEl.innerHTML = `<i class="bi bi-calendar3"></i> ${certDate}`;
+      if (downloadBtn) {
+        downloadBtn.href = certSrc;
+        downloadBtn.setAttribute('download', certSrc);
+      }
+      if (rawBtn) rawBtn.href = certSrc;
+      if (newTabBtn) newTabBtn.href = certSrc;
+
+      document.title = `${certTitle} — Nirmal C`;
+
+      function goBack(e) {
+        if (window.history.length > 1) {
+          e.preventDefault();
+          window.history.back();
+        } else {
+          window.location.href = 'index.html#achievements';
+        }
+      }
+
+      if (topBackBtn) topBackBtn.addEventListener('click', goBack);
+
+      // Keyboard shortcut: Esc to go back
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          goBack(e);
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

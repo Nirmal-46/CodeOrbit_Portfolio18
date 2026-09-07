@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Nirmal C — B.Tech AI & Data Science Student, Frontend Developer. Personal portfolio showcasing skills, projects, and achievements." />
+  <meta name="keywords"
+    content="Nirmal C, AI, Data Science, Frontend Developer, Portfolio, Python, React, Machine Learning" />
+  <meta name="author" content="Nirmal C" />
+  <title>Nirmal C | AI & Data Science Developer</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <!-- Portfolio CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+  PARTICLES CANVAS (background)
+══════════════════════════════════════════════════════ -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- ══════════════════════════════════════════════════════
+  CLASSIC MOUSE POINTER IN VIBRANT GRADIENT & GLOW
+══════════════════════════════════════════════════════ -->
+  <div id="custom-cursor" aria-hidden="true">
+    <svg class="cursor-pointer-svg" width="16" height="16" viewBox="0 0 26 26" fill="none">
+      <defs>
+        <linearGradient id="cursorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ef4444" />
+          <stop offset="45%" stop-color="#3b82f6" />
+          <stop offset="100%" stop-color="#06b6d4" />
+        </linearGradient>
+        <filter id="neonPointerGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feDropShadow dx="0" dy="0" stdDeviation="1.2" flood-color="#ef4444" flood-opacity="0.8" />
+          <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#3b82f6" flood-opacity="0.65" />
+        </filter>
+      </defs>
+      <!-- Classic Mouse Arrow in Gradient Fill -->
+      <path d="M3 2 L3 20 L7.5 15.5 L12 22 L14.5 20.5 L10 14 L16.5 14 Z" fill="url(#cursorGradient)" stroke="#ffffff"
+        stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round" filter="url(#neonPointerGlow)" />
+    </svg>
+  </div>
+  <div id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════
+  NAVBAR
+══════════════════════════════════════════════════════ -->
+  <nav id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <!-- Logo (triple-click triggers admin) -->
+      <span class="nav-logo" id="nav-logo" role="button" tabindex="0" aria-label="Nirmal C - Home">Nirmal C</span>
+
+      <!-- Desktop nav links -->
+      <ul class="nav-links" id="nav-links-desktop">
+        <li><a href="#home" class="nav-link-item active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link-item" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link-item" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link-item" data-section="projects">Projects</a></li>
+        <li><a href="#experience" class="nav-link-item" data-section="experience">Experience</a></li>
+        <li><a href="#achievements" class="nav-link-item" data-section="achievements">Achievements</a></li>
+        <li><a href="#education" class="nav-link-item" data-section="education">Education</a></li>
+        <li><a href="#contact" class="nav-link-item" data-section="contact">Contact</a></li>
+      </ul>
+
+      <!-- Right side controls -->
+      <div class="d-flex align-items-center gap-2">
+        <!-- Theme toggle -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <i class="bi bi-moon-stars-fill" id="theme-icon"></i>
+        </button>
+        <!-- Hamburger -->
+        <div class="nav-hamburger" id="nav-hamburger" role="button" aria-label="Open mobile menu" aria-expanded="false"
+          tabindex="0">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav menu -->
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <ul>
+      <li><a href="#home" class="nav-link-item" data-section="home">Home</a></li>
+      <li><a href="#about" class="nav-link-item" data-section="about">About</a></li>
+      <li><a href="#skills" class="nav-link-item" data-section="skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link-item" data-section="projects">Projects</a></li>
+      <li><a href="#experience" class="nav-link-item" data-section="experience">Experience</a></li>
+      <li><a href="#achievements" class="nav-link-item" data-section="achievements">Achievements</a></li>
+      <li><a href="#education" class="nav-link-item" data-section="education">Education</a></li>
+      <li><a href="#contact" class="nav-link-item" data-section="contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-footer">
+      <i class="bi bi-moon-stars-fill" style="color:var(--accent-b)"></i>
+      Dark mode active
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+  1. HOME / HERO
+══════════════════════════════════════════════════════ -->
+  <section id="home" aria-label="Home">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="container-xl hero-content" style="padding-top:2rem; padding-bottom:5rem;">
+      <div class="row align-items-center min-vh-100 g-4" style="padding-top:var(--nav-h)">
+
+        <!-- Text column -->
+        <div class="col-lg-6 hero-col-text reveal reveal-left" id="hero-text-col">
+          <!-- Creative Cyber 'I AM' Tag -->
+          <div class="hero-iam-tag">
+            <span class="iam-pulse-dot" aria-hidden="true"></span>
+            <span class="iam-text">I AM</span>
+          </div>
+          <h1 class="hero-name" id="hero-heading">
+            <span class="gradient-text hero-name-animated" id="display-name">Nirmal C</span>
+          </h1>
+          <p class="hero-title" id="hero-title-typed">
+            <span id="typewriter-text">AI &amp; Data Science Student</span><span class="typewriter-cursor"
+              aria-hidden="true"></span>
+          </p>
+          <p class="hero-intro" id="display-intro">
+            Passionate about the intersection of <strong class="text-hero-ai">Artificial Intelligence</strong>,
+            <strong class="text-hero-ds">Data Science</strong>, and
+            <strong class="text-hero-fe">Frontend Development</strong>.
+            I build real-world projects, explore cutting-edge technologies, and continuously sharpen my skills to create
+            impactful digital experiences.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn-glow btn-primary-glow" id="hero-btn-projects">
+              <i class="bi bi-grid-3x3-gap-fill"></i> View Projects
+            </a>
+            <a href="#contact" class="btn-glow btn-outline-glow" id="hero-btn-contact">
+              <i class="bi bi-envelope-fill"></i> Contact Me
+            </a>
+          </div>
+          <div class="hero-socials">
+            <a href="https://github.com/Nirmal-46" target="_blank" rel="noopener noreferrer" class="social-icon-link github"
+              aria-label="GitHub" title="GitHub" id="hero-social-github">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/nirmal-here?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="social-icon-link linkedin"
+              aria-label="LinkedIn" title="LinkedIn" id="hero-social-linkedin">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/_captain_culprit_18?igsh=MW9lMDI4Y3VrNnJkcQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-icon-link instagram"
+              aria-label="Instagram" title="Instagram" id="hero-social-instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:captainculprit2007@gmail.com" class="social-icon-link gmail" aria-label="Email" title="Send Email"
+              id="hero-social-gmail">
+              <i class="bi bi-envelope-fill"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Photo column with Circular Orbiting Tech Orbs & Hologram HUD -->
+        <div class="col-lg-6 hero-col-image d-flex justify-content-center reveal reveal-right">
+          <div class="cyber-photo-stage" id="cyber-photo-stage">
+            <!-- Dual Counter-Rotating Orbit Rings with Satellite Nodes -->
+            <div class="orbit-ring-outer" aria-hidden="true">
+              <span class="orbit-node node-1"></span>
+              <span class="orbit-node node-2"></span>
+            </div>
+            <div class="orbit-ring-inner" aria-hidden="true"></div>
+
+            <!-- Live Status Beacon (Top) -->
+            <div class="hud-status-badge">
+              <span class="live-pulse-dot"></span>
+              <span>Open to Opportunities</span>
+            </div>
+
+            <!-- Circular Floating Tech Orbs with Tooltips -->
+            <div class="cyber-orb orb-ai" data-tooltip="AI &amp; Data Science">
+              <i class="bi bi-robot"></i>
+            </div>
+            <div class="cyber-orb orb-nxtwave" data-tooltip="NxtWave 4.0">
+              <i class="bi bi-laptop-fill"></i>
+            </div>
+            <div class="cyber-orb orb-python" data-tooltip="Python &amp; ML">
+              <i class="fab fa-python"></i>
+            </div>
+            <div class="cyber-orb orb-dev" data-tooltip="Full-Stack Dev">
+              <i class="bi bi-code-slash"></i>
+            </div>
+
+            <!-- Main Photo Container with Hologram Scan Line -->
+            <div class="hero-photo-ring" id="hero-photo-ring">
+              <div class="hologram-scanner" aria-hidden="true"></div>
+              <img src="profile.jpeg" alt="Nirmal C - Profile Photo" class="hero-photo" id="profile-photo" />
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <i class="bi bi-chevron-double-down"></i>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+  2. ABOUT
+══════════════════════════════════════════════════════ -->
+  <section id="about" class="section-wrapper" aria-label="About Me">
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+
+    <div class="container-xl section-content">
+      <div class="text-center mb-5">
+        <span class="section-label reveal">About Me</span>
+        <h2 class="section-title reveal reveal-delay-1">Who <span class="gradient-text">Am I?</span></h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          A curious mind driven by technology, creativity, and a passion for solving real-world problems through code.
+        </p>
+      </div>
+
+      <!-- Intro paragraph — full width -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-9">
+          <p class="reveal text-center" style="color:var(--text-secondary); font-size:1.08rem; line-height:1.9;"
+            id="about-description">
+            Hi! I'm <strong style="color:var(--text-primary)">Nirmal C</strong>, a first-year
+            <strong style="color:var(--accent-b)">B.Tech AI &amp; Data Science</strong> student at
+            <strong style="color:var(--accent-c)">KPR Institute</strong>. I'm deeply passionate about
+            Artificial Intelligence, Machine Learning, and Frontend Development. I love building projects
+            that bridge technology and real-world impact, participating in hackathons, and continuously
+            learning new skills to stay ahead in the fast-evolving tech landscape.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 Info cards — horizontal row -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="glass-card about-info-card h-100 reveal reveal-delay-1">
+            <div class="about-info-icon"><i class="bi bi-mortarboard-fill"></i></div>
+            <h4>Education</h4>
+            <p>B.Tech AI &amp; DS (CGPA: 8.06)<br>KPR Institute · 2025–2029</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="glass-card about-info-card h-100 reveal reveal-delay-2">
+            <div class="about-info-icon"><i class="bi bi-bullseye"></i></div>
+            <h4>Current Focus</h4>
+            <p id="about-focus">React, Gen AI, UI/UX &amp; Data Science foundations</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="glass-card about-info-card h-100 reveal reveal-delay-3">
+            <div class="about-info-icon"><i class="bi bi-heart-fill"></i></div>
+            <h4>Interests</h4>
+            <p>AI/ML, Web Dev, Open Source, Hackathons, Design</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="glass-card about-info-card h-100 reveal reveal-delay-4">
+            <div class="about-info-icon"><i class="bi bi-rocket-takeoff-fill"></i></div>
+            <h4>Career Goals</h4>
+            <p id="about-goals">AI/ML Engineer or Full-Stack Developer with AI integration</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat strip — 4 equal columns -->
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-lg-3">
+          <div class="glass-card stat-card grad-border reveal reveal-delay-1">
+            <div class="stat-number gradient-text">1+</div>
+            <div class="stat-label">Year of Coding</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="glass-card stat-card grad-border reveal reveal-delay-2">
+            <div class="stat-number gradient-text-alt">10+</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="glass-card stat-card grad-border reveal reveal-delay-3">
+            <div class="stat-number gradient-text">3+</div>
+            <div class="stat-label">Projects Built</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="glass-card stat-card grad-border reveal reveal-delay-4">
+            <div class="stat-number gradient-text-alt">∞</div>
+            <div class="stat-label">Curiosity</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interest tags — centred -->
+      <div class="d-flex flex-wrap justify-content-center gap-2 reveal reveal-delay-3">
+        <span class="interest-tag"><i class="bi bi-robot me-1"></i>Artificial Intelligence</span>
+        <span class="interest-tag"><i class="bi bi-bar-chart-fill me-1"></i>Data Science</span>
+        <span class="interest-tag"><i class="bi bi-code-slash me-1"></i>Frontend Dev</span>
+        <span class="interest-tag"><i class="bi bi-trophy-fill me-1"></i>Hackathons</span>
+        <span class="interest-tag"><i class="bi bi-palette-fill me-1"></i>UI/UX</span>
+        <span class="interest-tag"><i class="bi bi-github me-1"></i>Open Source</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+  3. SKILLS
+══════════════════════════════════════════════════════ -->
+  <section id="skills" class="section-wrapper skills-section" aria-label="Skills">
+    <div class="blob blob-2" style="top:-5%;right:-15%;" aria-hidden="true"></div>
+    <div class="blob blob-3" style="bottom:0;left:-10%;" aria-hidden="true"></div>
+
+    <!-- Floating icons layer -->
+    <div class="floating-icons-layer" aria-hidden="true" id="floating-icons-layer">
+      <div class="float-icon" data-name="Python" style="top:8%;left:5%"><i class="fab fa-python"></i><span
+          class="float-tooltip">Python</span></div>
+      <div class="float-icon" data-name="HTML5" style="top:15%;left:88%"><i class="fab fa-html5"></i><span
+          class="float-tooltip">HTML5</span></div>
+      <div class="float-icon" data-name="CSS3" style="top:70%;left:92%"><i class="fab fa-css3-alt"></i><span
+          class="float-tooltip">CSS3</span></div>
+      <div class="float-icon" data-name="JavaScript" style="top:55%;left:3%"><i class="fab fa-js-square"></i><span
+          class="float-tooltip">JavaScript</span></div>
+      <div class="float-icon" data-name="Bootstrap" style="top:80%;left:12%"><i class="fab fa-bootstrap"></i><span
+          class="float-tooltip">Bootstrap</span></div>
+      <div class="float-icon" data-name="React" style="top:30%;left:95%"><i class="fab fa-react"></i><span
+          class="float-tooltip">React</span></div>
+      <div class="float-icon" data-name="Git" style="top:42%;left:7%"><i class="fab fa-git-alt"></i><span
+          class="float-tooltip">Git</span></div>
+      <div class="float-icon" data-name="GitHub" style="top:85%;left:75%"><i class="fab fa-github"></i><span
+          class="float-tooltip">GitHub</span></div>
+      <div class="float-icon" data-name="C" style="top:5%;left:55%"><i class="bi bi-c-circle-fill"></i><span
+          class="float-tooltip">C</span></div>
+      <div class="float-icon" data-name="NumPy" style="top:60%;left:80%"><i class="bi bi-grid-3x3"></i><span
+          class="float-tooltip">NumPy</span></div>
+      <div class="float-icon" data-name="Pandas" style="top:20%;left:20%"><i class="bi bi-table"></i><span
+          class="float-tooltip">Pandas</span></div>
+      <div class="float-icon" data-name="SQL" style="top:90%;left:42%"><i class="bi bi-database-fill"></i><span
+          class="float-tooltip">SQL</span></div>
+    </div>
+
+    <div class="container-xl section-content">
+      <div class="text-center mb-5">
+        <span class="section-label reveal">My Toolkit</span>
+        <h2 class="section-title reveal reveal-delay-1">Skills &amp; <span class="gradient-text">Technologies</span>
+        </h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          A curated set of technologies I work with and am actively learning.
+        </p>
+      </div>
+
+      <!-- Category tabs -->
+      <div class="skill-tabs reveal reveal-delay-2" role="tablist" aria-label="Skill categories">
+        <button class="skill-tab-btn active" data-cat="all" role="tab" aria-selected="true">All</button>
+        <button class="skill-tab-btn" data-cat="frontend" role="tab">Frontend</button>
+        <button class="skill-tab-btn" data-cat="programming" role="tab">Programming</button>
+        <button class="skill-tab-btn" data-cat="datascience" role="tab">Data Science</button>
+        <button class="skill-tab-btn" data-cat="database" role="tab">Database</button>
+        <button class="skill-tab-btn" data-cat="tools" role="tab">Tools</button>
+        <button class="skill-tab-btn" data-cat="learning" role="tab">Learning</button>
+      </div>
+
+      <!-- Skills grid -->
+      <div class="skills-grid" id="skills-grid">
+
+        <!-- Frontend -->
+        <div class="glass-card skill-card grad-border reveal" data-cat="frontend">
+          <div class="skill-icon-wrap"><i class="fab fa-html5" style="color:#e34c26"></i></div>
+          <h4>HTML5</h4>
+          <div class="skill-cat-badge">Frontend</div>
+          <p class="skill-desc">Semantic, accessible markup for modern web</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-1" data-cat="frontend">
+          <div class="skill-icon-wrap"><i class="fab fa-css3-alt" style="color:#264de4"></i></div>
+          <h4>CSS3</h4>
+          <div class="skill-cat-badge">Frontend</div>
+          <p class="skill-desc">Flexbox, Grid, animations &amp; responsive design</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-2" data-cat="frontend">
+          <div class="skill-icon-wrap"><i class="fab fa-bootstrap" style="color:#7952b3"></i></div>
+          <h4>Bootstrap 5</h4>
+          <div class="skill-cat-badge">Frontend</div>
+          <p class="skill-desc">Rapid responsive UI components</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-3" data-cat="frontend">
+          <div class="skill-icon-wrap"><i class="fab fa-js-square" style="color:#f7df1e"></i></div>
+          <h4>JavaScript</h4>
+          <div class="skill-cat-badge">Frontend</div>
+          <p class="skill-desc">DOM manipulation, ES6+, interactive UIs</p>
+        </div>
+
+        <!-- Programming -->
+        <div class="glass-card skill-card grad-border reveal" data-cat="programming">
+          <div class="skill-icon-wrap"><i class="fab fa-python" style="color:#3776ab"></i></div>
+          <h4>Python</h4>
+          <div class="skill-cat-badge">Programming</div>
+          <p class="skill-desc">Scripting, data analysis &amp; ML experiments</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-1" data-cat="programming">
+          <div class="skill-icon-wrap"><i class="bi bi-c-circle-fill" style="color:#00599c"></i></div>
+          <h4>C</h4>
+          <div class="skill-cat-badge">Programming</div>
+          <p class="skill-desc">Fundamentals: pointers, memory management</p>
+        </div>
+
+        <!-- Data Science -->
+        <div class="glass-card skill-card grad-border reveal" data-cat="datascience">
+          <div class="skill-icon-wrap"><i class="bi bi-grid-3x3" style="color:#4dabcf"></i></div>
+          <h4>NumPy</h4>
+          <div class="skill-cat-badge">Data Science</div>
+          <p class="skill-desc">Numerical computing &amp; array operations</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-1" data-cat="datascience">
+          <div class="skill-icon-wrap"><i class="bi bi-table" style="color:#e70488"></i></div>
+          <h4>Pandas</h4>
+          <div class="skill-cat-badge">Data Science</div>
+          <p class="skill-desc">Data manipulation &amp; analysis</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-2" data-cat="datascience">
+          <div class="skill-icon-wrap"><i class="bi bi-bar-chart-fill" style="color:#11557c"></i></div>
+          <h4>Matplotlib</h4>
+          <div class="skill-cat-badge">Data Science</div>
+          <p class="skill-desc">Data visualization &amp; plotting</p>
+        </div>
+
+        <!-- Database -->
+        <div class="glass-card skill-card grad-border reveal" data-cat="database">
+          <div class="skill-icon-wrap"><i class="bi bi-database-fill" style="color:#f29111"></i></div>
+          <h4>SQL</h4>
+          <div class="skill-cat-badge">Database</div>
+          <p class="skill-desc">Queries, joins &amp; relational databases</p>
+        </div>
+
+        <!-- Tools -->
+        <div class="glass-card skill-card grad-border reveal" data-cat="tools">
+          <div class="skill-icon-wrap"><i class="fab fa-git-alt" style="color:#f05032"></i></div>
+          <h4>Git</h4>
+          <div class="skill-cat-badge">Tools</div>
+          <p class="skill-desc">Version control &amp; branching</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-1" data-cat="tools">
+          <div class="skill-icon-wrap"><i class="fab fa-github" style="color:#e2e8f0"></i></div>
+          <h4>GitHub</h4>
+          <div class="skill-cat-badge">Tools</div>
+          <p class="skill-desc">Collaboration, repos &amp; open source</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-2" data-cat="tools">
+          <div class="skill-icon-wrap"><i class="bi bi-code-square" style="color:#007acc"></i></div>
+          <h4>VS Code</h4>
+          <div class="skill-cat-badge">Tools</div>
+          <p class="skill-desc">My primary development environment</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-3" data-cat="tools">
+          <div class="skill-icon-wrap"><i class="bi bi-shield-lock-fill" style="color:#22d3ee"></i></div>
+          <h4>Cybersecurity</h4>
+          <div class="skill-cat-badge">Security</div>
+          <p class="skill-desc">Network security, Fortinet NSE 1 &amp; 2 certified concepts</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-4" data-cat="tools">
+          <div class="skill-icon-wrap"><i class="bi bi-cpu-fill" style="color:#d97706"></i></div>
+          <h4>MATLAB</h4>
+          <div class="skill-cat-badge">Computing</div>
+          <p class="skill-desc">MathWorks Onramp certified scientific computations</p>
+        </div>
+
+        <!-- Currently Learning -->
+        <div class="glass-card skill-card grad-border reveal" data-cat="learning">
+          <div class="skill-icon-wrap"><i class="fab fa-react" style="color:#61dafb"></i></div>
+          <h4>React</h4>
+          <div class="skill-cat-badge">Frontend</div>
+          <div class="learning-badge"><i class="bi bi-stars me-1"></i>Learning</div>
+          <p class="skill-desc">Component-based UI development</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-1" data-cat="learning">
+          <div class="skill-icon-wrap"><i class="bi bi-palette-fill" style="color:#a855f7"></i></div>
+          <h4>UI/UX</h4>
+          <div class="skill-cat-badge">Design</div>
+          <div class="learning-badge"><i class="bi bi-stars me-1"></i>Learning</div>
+          <p class="skill-desc">User experience &amp; interface design principles</p>
+        </div>
+        <div class="glass-card skill-card grad-border reveal reveal-delay-2" data-cat="learning">
+          <div class="skill-icon-wrap"><i class="bi bi-robot" style="color:#06b6d4"></i></div>
+          <h4>Gen AI</h4>
+          <div class="skill-cat-badge">AI</div>
+          <div class="learning-badge"><i class="bi bi-stars me-1"></i>Learning</div>
+          <p class="skill-desc">Generative AI tools, prompting &amp; LLM concepts</p>
+        </div>
+      </div><!-- /#skills-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+  4. PROJECTS
+══════════════════════════════════════════════════════ -->
+  <section id="projects" class="section-wrapper" aria-label="Projects">
+    <div class="blob blob-1" style="bottom:-10%;left:-10%;top:auto;" aria-hidden="true"></div>
+    <div class="blob blob-3" style="top:10%;right:-5%;" aria-hidden="true"></div>
+
+    <!-- Floating dev ambient accents -->
+    <div class="floating-ambient-layer" aria-hidden="true">
+      <div class="ambient-badge" style="top:12%;left:4%;animation-delay:0s;"><i class="bi bi-code-slash text-cyan"></i>
+        &lt;Code /&gt;</div>
+      <div class="ambient-badge" style="top:18%;right:6%;animation-delay:-2s;"><i class="bi bi-robot text-violet"></i>
+        AI Model</div>
+      <div class="ambient-badge" style="top:75%;left:3%;animation-delay:-4s;"><i class="bi bi-cpu text-cyan"></i> API
+        Engine</div>
+      <div class="ambient-badge" style="top:85%;right:5%;animation-delay:-1.5s;"><i
+          class="bi bi-lightning-charge-fill text-warning"></i> Fast UI</div>
+    </div>
+
+    <div class="container-xl section-content">
+      <div class="text-center mb-5">
+        <span class="section-label reveal">Portfolio</span>
+        <h2 class="section-title reveal reveal-delay-1">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Real-world projects built with passion and purpose. Replace these with your own work.
+        </p>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="projects-filter reveal reveal-delay-2" role="tablist">
+        <button class="proj-filter-btn active" data-filter="all">All</button>
+        <button class="proj-filter-btn" data-filter="web">Web Dev</button>
+        <button class="proj-filter-btn" data-filter="app">Web Apps</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- Project 1: Tourism & Travel Booking Platform -->
+        <div class="glass-card project-card reveal" data-tags="web,app">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder"><i class="bi bi-compass-fill"></i></div>
+            <div class="project-overlay" aria-hidden="true"></div>
+            <span class="project-badge-top"><i class="bi bi-globe-americas"></i> Tourism Web App</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Tourism &amp; Travel Booking Platform</h3>
+            <p class="project-desc">
+              A user-friendly, responsive tourism portal to explore popular travel spots and book destinations. Built with a lightweight backend booking workflow, interactive destination cards, and intuitive responsive UI.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag tag-web"><i class="fab fa-html5"></i> HTML5</span>
+              <span class="tech-tag tag-web"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <span class="tech-tag tag-js"><i class="fab fa-js-square"></i> JS</span>
+              <span class="tech-tag tag-web"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+              <span class="tech-tag tag-data"><i class="bi bi-server"></i> Backend</span>
+            </div>
+            <div class="project-actions">
+              <a href="#" class="btn-sm-glow btn-proj-primary" target="_blank" rel="noopener"
+                aria-label="Live demo of Tourism Booking Web App">
+                <i class="bi bi-play-circle-fill"></i> Live Demo
+              </a>
+              <a href="https://github.com/Nirmal-46" class="btn-sm-glow btn-proj-outline" target="_blank" rel="noopener"
+                aria-label="GitHub repo for Tourism Booking Web App">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Portfolio Website -->
+        <div class="glass-card project-card reveal reveal-delay-1" data-tags="web">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder"><i class="bi bi-window-stack"></i></div>
+            <div class="project-overlay" aria-hidden="true"></div>
+            <span class="project-badge-top"><i class="bi bi-lightning-fill"></i> Frontend</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-desc">
+              This very portfolio — a futuristic, fully responsive personal website with dark/light mode,
+              glassmorphism, scroll animations, and an admin dashboard.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag tag-web"><i class="fab fa-html5"></i> HTML5</span>
+              <span class="tech-tag tag-web"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <span class="tech-tag tag-js"><i class="fab fa-js-square"></i> JS</span>
+              <span class="tech-tag tag-web"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+            </div>
+            <div class="project-actions">
+              <a href="#" class="btn-sm-glow btn-proj-primary" target="_blank" rel="noopener"
+                aria-label="Live demo of portfolio">
+                <i class="bi bi-play-circle-fill"></i> Live Demo
+              </a>
+              <a href="https://github.com/Nirmal-46" class="btn-sm-glow btn-proj-outline" target="_blank" rel="noopener"
+                aria-label="GitHub repo for Portfolio Website">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Todo List App -->
+        <div class="glass-card project-card reveal reveal-delay-2" data-tags="web,app">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder"><i class="bi bi-check2-square"></i></div>
+            <div class="project-overlay" aria-hidden="true"></div>
+            <span class="project-badge-top"><i class="bi bi-check-circle-fill"></i> Task Manager</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Todo List App</h3>
+            <p class="project-desc">
+              A clean, responsive, and intuitive task management application with real-time task additions, completion toggling, priority filters, and persistent local storage.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag tag-web"><i class="fab fa-html5"></i> HTML5</span>
+              <span class="tech-tag tag-web"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <span class="tech-tag tag-js"><i class="fab fa-js-square"></i> JS</span>
+              <span class="tech-tag tag-web"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+              <span class="tech-tag tag-data"><i class="bi bi-database"></i> LocalStorage</span>
+            </div>
+            <div class="project-actions">
+              <a href="#" class="btn-sm-glow btn-proj-primary" target="_blank" rel="noopener"
+                aria-label="Live demo of Todo List App">
+                <i class="bi bi-play-circle-fill"></i> Live Demo
+              </a>
+              <a href="https://github.com/Nirmal-46" class="btn-sm-glow btn-proj-outline" target="_blank" rel="noopener"
+                aria-label="GitHub repo for Todo List App">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /#projects-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+  5. EXPERIENCE
+══════════════════════════════════════════════════════ -->
+  <section id="experience" class="section-wrapper" aria-label="Experience">
+    <div class="blob blob-2" style="top:-5%;right:-10%;" aria-hidden="true"></div>
+
+    <!-- Floating experience ambient accents -->
+    <div class="floating-ambient-layer" aria-hidden="true">
+      <div class="ambient-badge" style="top:10%;left:5%;animation-delay:-1s;"><i class="bi bi-trophy text-warning"></i>
+        Hackathons</div>
+      <div class="ambient-badge" style="top:25%;right:5%;animation-delay:-3s;"><i
+          class="bi bi-people-fill text-cyan"></i> Team Collab</div>
+      <div class="ambient-badge" style="top:70%;left:4%;animation-delay:-2.5s;"><i class="bi bi-tools text-violet"></i>
+        Workshops</div>
+      <div class="ambient-badge" style="top:85%;right:6%;animation-delay:-0.5s;"><i
+          class="bi bi-lightbulb text-warning"></i> Innovation</div>
+    </div>
+
+    <div class="container-xl section-content">
+      <div class="text-center mb-5">
+        <span class="section-label reveal">Journey</span>
+        <h2 class="section-title reveal reveal-delay-1">Experience &amp; <span class="gradient-text">Activities</span>
+        </h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Hackathons, workshops, and activities that shape my growth as a developer.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="timeline" id="experience-timeline">
+
+            <!-- Item 1 -->
+            <div class="timeline-item reveal">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="glass-card timeline-card">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-title">🛡️ Cybersecurity Awareness Campaign</div>
+                    <div class="timeline-org">Youth &amp; Student Outreach Initiative</div>
+                  </div>
+                  <span class="timeline-date">2026</span>
+                </div>
+                <p class="timeline-desc">
+                  Actively participated in a one-day cybersecurity awareness campaign. Engaged with peers on digital safety, phishing prevention, authentication hygiene, and responsible online practices.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Cybersecurity</span>
+                  <span class="timeline-tag">Digital Safety</span>
+                  <span class="timeline-tag">Awareness</span>
+                  <span class="timeline-tag">Fortinet Certified</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="timeline-item reveal reveal-delay-1">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="glass-card timeline-card">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-title">💻 Honours Diploma in Computer Applications (HDCA)</div>
+                    <div class="timeline-org">CSC Computer Software College</div>
+                  </div>
+                  <span class="timeline-date">Aug 2024 – Aug 2025</span>
+                </div>
+                <p class="timeline-desc">
+                  Completed an intensive 1-year professional computing program covering software applications, programming foundations, office suites, and database management, passing with an overall <strong>'A' Grade</strong>.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">HDCA</span>
+                  <span class="timeline-tag">CSC</span>
+                  <span class="timeline-tag">Grade 'A'</span>
+                  <span class="timeline-tag">1-Year Diploma</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="timeline-item reveal reveal-delay-2">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="glass-card timeline-card">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-title">🚀 Full-Stack Web Development Trainee</div>
+                    <div class="timeline-org">NxtWave Academy (CCBP 4.0)</div>
+                  </div>
+                  <span class="timeline-date">2025 – Present</span>
+                </div>
+                <p class="timeline-desc">
+                  Building industry-ready frontend engineering skills. Successfully cleared proctored examination assessments for Static and Responsive Web Development (HTML5, CSS3, Flexbox, and Bootstrap).
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">NxtWave CCBP</span>
+                  <span class="timeline-tag">HTML5/CSS3</span>
+                  <span class="timeline-tag">Bootstrap</span>
+                  <span class="timeline-tag">Exam Verified</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="timeline-item reveal reveal-delay-3">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="glass-card timeline-card">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-title">🏃 Track &amp; Field Athlete — 400m Hurdles</div>
+                    <div class="timeline-org">School Zonal &amp; District Athletics Meet</div>
+                  </div>
+                  <span class="timeline-date">2024 – 2025</span>
+                </div>
+                <p class="timeline-desc">
+                  Achieved <strong>400m Hurdles Zonal Runner-Up</strong> and represented the zone at the District Level athletic competitions, cultivating high endurance, discipline, agility, and competitive spirit.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">400m Hurdles</span>
+                  <span class="timeline-tag">Zonal Runner-Up</span>
+                  <span class="timeline-tag">District Level</span>
+                  <span class="timeline-tag">Athletics</span>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.timeline -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+  6. ACHIEVEMENTS
+══════════════════════════════════════════════════════ -->
+  <section id="achievements" class="section-wrapper" aria-label="Achievements">
+    <div class="blob blob-1" style="bottom:-5%;left:-10%;top:auto;" aria-hidden="true"></div>
+    <div class="blob blob-3" style="top:20%;right:5%;" aria-hidden="true"></div>
+
+    <!-- Floating achievements ambient accents -->
+    <div class="floating-ambient-layer" aria-hidden="true">
+      <div class="ambient-badge" style="top:12%;left:4%;animation-delay:-0.8s;"><i
+          class="bi bi-award-fill text-warning"></i> Certifications</div>
+      <div class="ambient-badge" style="top:20%;right:6%;animation-delay:-2.2s;"><i
+          class="bi bi-star-fill text-cyan"></i> Milestones</div>
+      <div class="ambient-badge" style="top:75%;left:5%;animation-delay:-3.8s;"><i
+          class="bi bi-patch-check-fill text-success"></i> Verified</div>
+      <div class="ambient-badge" style="top:80%;right:4%;animation-delay:-1.2s;"><i class="bi bi-gem text-violet"></i>
+        Recognition</div>
+    </div>
+
+    <div class="container-xl section-content">
+      <div class="text-center mb-5">
+        <span class="section-label reveal">Recognition</span>
+        <h2 class="section-title reveal reveal-delay-1">Achievements &amp; <span class="gradient-text">Milestones</span>
+        </h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Certificates, competitions, and accomplishments that reflect my dedication.
+        </p>
+      </div>
+
+      <div class="achievements-grid" id="achievements-grid">
+
+        <!-- Card 1: Fortinet NSE 1 -->
+        <div class="glass-card achievement-card reveal">
+          <div class="achievement-date">2026</div>
+          <div class="achievement-icon"
+            style="background:linear-gradient(135deg,rgba(6,182,212,0.2),rgba(59,130,246,0.2)); color:#06b6d4;">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h4 class="achievement-title">NSE 1: Information Security Awareness</h4>
+          <div class="achievement-org">Fortinet Training Institute</div>
+          <p class="achievement-desc">
+            Certified in foundational threat landscapes, social engineering vectors, password governance, and fundamental cybersecurity hygiene.
+          </p>
+          <div class="achievement-actions">
+            <a href="certificate.html?cert=Nse1.PNG&amp;title=NSE+1%3A+Information+Security+Awareness&amp;org=Fortinet+Training+Institute&amp;date=2026"
+              class="btn-cert-view" aria-label="View Fortinet NSE 1 Certificate"
+              data-cert-img="Nse1.PNG"
+              data-cert-title="NSE 1: Information Security Awareness"
+              data-cert-org="Fortinet Training Institute"
+              data-cert-date="2026">
+              <i class="bi bi-eye-fill"></i> View Certificate
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Fortinet NSE 2 -->
+        <div class="glass-card achievement-card reveal reveal-delay-1">
+          <div class="achievement-date">2026</div>
+          <div class="achievement-icon"
+            style="background:linear-gradient(135deg,rgba(124,58,237,0.2),rgba(6,182,212,0.2)); color:#a855f7;">
+            <i class="bi bi-shield-lock-fill"></i>
+          </div>
+          <h4 class="achievement-title">NSE 2: The Evolution of Cybersecurity</h4>
+          <div class="achievement-org">Fortinet Training Institute</div>
+          <p class="achievement-desc">
+            Advanced certification in modern cybersecurity architecture, enterprise defense mechanisms, SASE, endpoint protection, and cloud security.
+          </p>
+          <div class="achievement-actions">
+            <a href="certificate.html?cert=Nse2.PNG&amp;title=NSE+2%3A+The+Evolution+of+Cybersecurity&amp;org=Fortinet+Training+Institute&amp;date=2026"
+              class="btn-cert-view" aria-label="View Fortinet NSE 2 Certificate"
+              data-cert-img="Nse2.PNG"
+              data-cert-title="NSE 2: The Evolution of Cybersecurity"
+              data-cert-org="Fortinet Training Institute"
+              data-cert-date="2026">
+              <i class="bi bi-eye-fill"></i> View Certificate
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: NxtWave Static Website -->
+        <div class="glass-card achievement-card reveal reveal-delay-2">
+          <div class="achievement-date">2026</div>
+          <div class="achievement-icon"
+            style="background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(239,68,68,0.2)); color:#f59e0b;">
+            <i class="bi bi-code-slash"></i>
+          </div>
+          <h4 class="achievement-title">Build Your Own Static Website</h4>
+          <div class="achievement-org">NxtWave CCBP 4.0 Academy</div>
+          <p class="achievement-desc">
+            Proctored exam verified certificate in structuring and designing modern responsive web pages with HTML5, CSS3, and Bootstrap.
+          </p>
+          <div class="achievement-actions">
+            <a href="certificate.html?cert=Static.PNG&amp;title=Build+Your+Own+Static+Website&amp;org=NxtWave+CCBP+4.0+Academy&amp;date=2026"
+              class="btn-cert-view" aria-label="View NxtWave Static Website Certificate"
+              data-cert-img="Static.PNG"
+              data-cert-title="Build Your Own Static Website"
+              data-cert-org="NxtWave CCBP 4.0 Academy"
+              data-cert-date="2026">
+              <i class="bi bi-eye-fill"></i> View Certificate
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: NxtWave Responsive Website -->
+        <div class="glass-card achievement-card reveal reveal-delay-3">
+          <div class="achievement-date">2026</div>
+          <div class="achievement-icon"
+            style="background:linear-gradient(135deg,rgba(16,185,129,0.2),rgba(6,182,212,0.2)); color:#10b981;">
+            <i class="bi bi-laptop-fill"></i>
+          </div>
+          <h4 class="achievement-title">Build Your Own Responsive Website</h4>
+          <div class="achievement-org">NxtWave CCBP 4.0 Academy</div>
+          <p class="achievement-desc">
+            Exam verified certificate mastering mobile-first design patterns, CSS Flexbox layouts, Bootstrap grid system, and device adaptability.
+          </p>
+          <div class="achievement-actions">
+            <a href="certificate.html?cert=responsive.PNG&amp;title=Build+Your+Own+Responsive+Website&amp;org=NxtWave+CCBP+4.0+Academy&amp;date=2026"
+              class="btn-cert-view" aria-label="View NxtWave Responsive Website Certificate"
+              data-cert-img="responsive.PNG"
+              data-cert-title="Build Your Own Responsive Website"
+              data-cert-org="NxtWave CCBP 4.0 Academy"
+              data-cert-date="2026">
+              <i class="bi bi-eye-fill"></i> View Certificate
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 5: HDCA 1-Year Diploma -->
+        <div class="glass-card achievement-card reveal">
+          <div class="achievement-date">2024 – 2025</div>
+          <div class="achievement-icon"
+            style="background:linear-gradient(135deg,rgba(236,72,153,0.2),rgba(124,58,237,0.2)); color:#ec4899;">
+            <i class="bi bi-award-fill"></i>
+          </div>
+          <h4 class="achievement-title">Honours Diploma in Computer Applications (HDCA)</h4>
+          <div class="achievement-org">CSC Computer Software College · <strong>Grade 'A'</strong></div>
+          <p class="achievement-desc">
+            Completed a comprehensive 1-year diploma (15 Aug 2024 – 15 Aug 2025) covering programming, database concepts, and system applications with distinction.
+          </p>
+          <div class="achievement-actions">
+            <a href="certificate.html?cert=csc.PNG&amp;title=Honours+Diploma+in+Computer+Applications+(HDCA)&amp;org=CSC+Computer+Software+College&amp;date=2024+-+2025"
+              class="btn-cert-view" aria-label="View HDCA Diploma Certificate"
+              data-cert-img="csc.PNG"
+              data-cert-title="Honours Diploma in Computer Applications (HDCA)"
+              data-cert-org="CSC Computer Software College · Grade 'A'"
+              data-cert-date="2024 – 2025">
+              <i class="bi bi-eye-fill"></i> View Certificate
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 6: MATLAB Onramp -->
+        <div class="glass-card achievement-card reveal reveal-delay-1">
+          <div class="achievement-date">2026</div>
+          <div class="achievement-icon"
+            style="background:linear-gradient(135deg,rgba(217,119,6,0.2),rgba(239,68,68,0.2)); color:#f97316;">
+            <i class="bi bi-cpu-fill"></i>
+          </div>
+          <h4 class="achievement-title">MATLAB Onramp Certification</h4>
+          <div class="achievement-org">MathWorks</div>
+          <p class="achievement-desc">
+            Hands-on certification in MATLAB computational methods, data visualization, numerical arrays, and matrix algorithm development.
+          </p>
+          <div class="achievement-actions">
+            <a href="certificate.html?cert=Matlab.PNG&amp;title=MATLAB+Onramp+Certification&amp;org=MathWorks&amp;date=2026"
+              class="btn-cert-view" aria-label="View MATLAB Certificate"
+              data-cert-img="Matlab.PNG"
+              data-cert-title="MATLAB Onramp Certification"
+              data-cert-org="MathWorks"
+              data-cert-date="2026">
+              <i class="bi bi-eye-fill"></i> View Certificate
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 7: Frameboxx Creative Scholarship -->
+        <div class="glass-card achievement-card reveal reveal-delay-2">
+          <div class="achievement-date">2026</div>
+          <div class="achievement-icon"
+            style="background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(236,72,153,0.2)); color:#c084fc;">
+            <i class="bi bi-palette-fill"></i>
+          </div>
+          <h4 class="achievement-title">Creative Scholarship Examination</h4>
+          <div class="achievement-org">Frameboxx 2.0 Animation &amp; Visual Effects</div>
+          <p class="achievement-desc">
+            Participated in the national creative scholarship talent assessment evaluating visual design, spatial logic, and multimedia aptitude.
+          </p>
+        </div>
+
+        <!-- Card 8: 400m Hurdles Zonal Runner-Up -->
+        <div class="glass-card achievement-card reveal reveal-delay-3">
+          <div class="achievement-date">2024 – 2025</div>
+          <div class="achievement-icon"
+            style="background:linear-gradient(135deg,rgba(250,204,21,0.2),rgba(245,158,11,0.2)); color:#fbbf24;">
+            <i class="bi bi-trophy-fill"></i>
+          </div>
+          <h4 class="achievement-title">400m Hurdles Zonal Runner-Up</h4>
+          <div class="achievement-org">Zonal Athletics Meet · District Participant</div>
+          <p class="achievement-desc">
+            Earned Zonal Runner-Up in the 400m Hurdles track &amp; field event and competed at the District Level athletic championship.
+          </p>
+        </div>
+
+      </div><!-- /.achievements-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+  7. EDUCATION
+══════════════════════════════════════════════════════ -->
+  <section id="education" class="section-wrapper" aria-label="Education">
+    <div class="blob blob-2" style="top:-5%;right:-10%;" aria-hidden="true"></div>
+
+    <!-- Floating education ambient accents -->
+    <div class="floating-ambient-layer" aria-hidden="true">
+      <div class="ambient-badge" style="top:12%;left:4%;animation-delay:-0.5s;"><i
+          class="bi bi-mortarboard-fill text-cyan"></i> B.Tech AI &amp; DS</div>
+      <div class="ambient-badge" style="top:30%;right:5%;animation-delay:-2.5s;"><i
+          class="bi bi-laptop-fill text-warning"></i> NxtWave 4.0</div>
+      <div class="ambient-badge" style="top:75%;left:5%;animation-delay:-1.8s;"><i
+          class="bi bi-book-fill text-violet"></i> CS &amp; AI Core</div>
+      <div class="ambient-badge" style="top:85%;right:6%;animation-delay:-3.2s;"><i
+          class="bi bi-journal-code text-cyan"></i> Problem Solving</div>
+    </div>
+
+    <div class="container-xl section-content">
+      <div class="text-center mb-5">
+        <span class="section-label reveal">Background</span>
+        <h2 class="section-title reveal reveal-delay-1">My <span class="gradient-text">Education</span></h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          The academic foundation that drives my technical growth and career aspirations.
+        </p>
+      </div>
+
+      <div class="education-timeline" id="education-timeline">
+
+        <!-- B.Tech -->
+        <div class="edu-item reveal">
+          <div class="edu-line">
+            <div class="edu-dot"></div>
+            <div class="edu-connector"></div>
+          </div>
+          <div class="glass-card edu-card">
+            <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-1">
+              <h3 class="edu-degree gradient-text mb-0">B.Tech – Artificial Intelligence &amp; Data Science</h3>
+              <span class="edu-badge-grade">
+                <i class="bi bi-star-fill me-1"></i>CGPA: 8.06
+              </span>
+            </div>
+            <div class="edu-institution">KPR Institute of Engineering and Technology</div>
+            <div class="edu-period"><i class="bi bi-calendar-fill"></i> 2025 – 2029</div>
+            <p class="edu-desc">
+              Pursuing a Bachelor of Technology in Artificial Intelligence &amp; Data Science.
+              Core subjects include Machine Learning, Data Structures, Python Programming,
+              Database Management, Statistics, and AI fundamentals. Actively participating in
+              technical clubs, workshops, and project-based learning.
+            </p>
+            <div class="edu-highlights">
+              <span class="edu-tag">CGPA: 8.06</span>
+              <span class="edu-tag">Machine Learning</span>
+              <span class="edu-tag">Data Science</span>
+              <span class="edu-tag">Python</span>
+              <span class="edu-tag">AI Fundamentals</span>
+              <span class="edu-tag">Statistics</span>
+              <span class="edu-tag">DBMS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schooling -->
+        <div class="edu-item reveal reveal-delay-1">
+          <div class="edu-line">
+            <div class="edu-dot"></div>
+            <div class="edu-connector"></div>
+          </div>
+          <div class="glass-card edu-card">
+            <div class="edu-icon"><i class="bi bi-building-fill"></i></div>
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-1">
+              <h3 class="edu-degree gradient-text-alt mb-0">Higher Secondary Education (HSC)</h3>
+              <span class="edu-badge-board">
+                State Board
+              </span>
+            </div>
+            <div class="edu-institution">Kongu Matric Higher Secondary School</div>
+            <div class="edu-period"><i class="bi bi-calendar-fill"></i> Completed 2025</div>
+            <p class="edu-desc">
+              Completed Class 12 under the Tamil Nadu State Board with a strong focus on Mathematics, Physics, Chemistry, and Computer Science.
+              Built a solid scientific and analytical foundation that led to pursuing AI &amp; Data Science.
+            </p>
+            <div class="edu-highlights">
+              <span class="edu-tag">State Board</span>
+              <span class="edu-tag">Mathematics</span>
+              <span class="edu-tag">Physics</span>
+              <span class="edu-tag">Computer Science</span>
+              <span class="edu-tag">Chemistry</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NxtWave Academy 4.0 -->
+        <div class="edu-item reveal reveal-delay-2">
+          <div class="edu-line">
+            <div class="edu-dot"></div>
+            <div class="edu-connector"></div>
+          </div>
+          <div class="glass-card edu-card">
+            <div class="edu-icon"><i class="bi bi-laptop-fill"></i></div>
+            <h3 class="edu-degree gradient-text mb-0">
+              NxtWave Academy 4.0
+            </h3>
+            <div class="edu-institution">NxtWave Immersive Learning — Industry-Ready Developer Programme</div>
+            <div class="edu-period"><i class="bi bi-calendar-fill"></i> 2025 – Present</div>
+            <p class="edu-desc">
+              Enrolled in NxtWave's intensive full-stack developer programme (CCBP 4.0).
+              Building industry-ready skills in Python, JavaScript, React, SQL and modern web development
+              through project-based learning, live sessions, and real-world assignments.
+              Certificate available — upload to Achievements section.
+            </p>
+            <div class="edu-highlights">
+              <span class="edu-tag">Python</span>
+              <span class="edu-tag">JavaScript</span>
+              <span class="edu-tag">React</span>
+              <span class="edu-tag">SQL</span>
+              <span class="edu-tag">Full-Stack Dev</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.education-timeline -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+  8. CONTACT
+══════════════════════════════════════════════════════ -->
+  <section id="contact" class="section-wrapper" aria-label="Contact">
+    <div class="blob blob-1" style="bottom:-5%;right:-10%;top:auto;" aria-hidden="true"></div>
+    <div class="blob blob-3" style="top:10%;left:-5%;" aria-hidden="true"></div>
+
+    <!-- Floating contact ambient accents -->
+    <div class="floating-ambient-layer" aria-hidden="true">
+      <div class="ambient-badge" style="top:15%;left:4%;animation-delay:-1.2s;"><i
+          class="bi bi-chat-dots-fill text-cyan"></i> Let's Talk</div>
+      <div class="ambient-badge" style="top:25%;right:5%;animation-delay:-3s;"><i
+          class="bi bi-envelope-paper-heart-fill text-violet"></i> Open Inbox</div>
+      <div class="ambient-badge" style="top:75%;left:5%;animation-delay:-2s;"><i class="bi bi-globe2 text-cyan"></i>
+        Remote Friendly</div>
+      <div class="ambient-badge" style="top:85%;right:5%;animation-delay:-0.5s;"><i
+          class="bi bi-send-check-fill text-success"></i> 24h Response</div>
+    </div>
+
+    <div class="container-xl section-content">
+      <div class="text-center mb-5">
+        <span class="section-label reveal">Get In Touch</span>
+        <h2 class="section-title reveal reveal-delay-1">Let's <span class="gradient-text">Connect</span></h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Whether it's a project collaboration, internship opportunity, or just a hello — my inbox is open.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Left: info -->
+        <div class="reveal reveal-left">
+          <h3 style="font-size:1.3rem; font-weight:700; margin-bottom:1.5rem;">
+            <span class="gradient-text">Contact</span> Information
+          </h3>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value" id="contact-email">captainculprit2007@gmail.com</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <div class="contact-info-label">Location</div>
+              <div class="contact-info-value">Tiruppur, Tamil Nadu, India</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="bi bi-mortarboard-fill"></i></div>
+            <div>
+              <div class="contact-info-label">Institution</div>
+              <div class="contact-info-value">KPR Institute, B.Tech AI &amp; DS</div>
+            </div>
+          </div>
+
+          <!-- Social buttons -->
+          <div class="contact-socials mt-3">
+            <a href="https://github.com/Nirmal-46" target="_blank" rel="noopener noreferrer" class="contact-social-btn github-btn"
+              data-tooltip="GitHub" id="contact-github" aria-label="GitHub profile">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/nirmal-here?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer"
+              class="contact-social-btn linkedin-btn" data-tooltip="LinkedIn" id="contact-linkedin"
+              aria-label="LinkedIn profile">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+            <a href="https://www.instagram.com/_captain_culprit_18?igsh=MW9lMDI4Y3VrNnJkcQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" class="contact-social-btn insta-btn"
+              data-tooltip="Instagram" id="contact-instagram" aria-label="Instagram profile">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="reveal reveal-right reveal-delay-2">
+          <div class="glass-card contact-form-card">
+            <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:1.5rem;">
+              <i class="bi bi-send-fill me-2" style="color:var(--accent-b)"></i>Send a Message
+            </h3>
+            <form id="contact-form" novalidate aria-label="Contact form">
+              <div class="form-group">
+                <label class="form-label" for="form-name">Full Name</label>
+                <input type="text" id="form-name" class="form-control-glow" placeholder="Your name" autocomplete="name"
+                  required />
+                <div class="form-error-msg" id="err-name">Please enter your name.</div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="form-email">Email Address</label>
+                <input type="email" id="form-email" class="form-control-glow" placeholder="your@email.com"
+                  autocomplete="email" required />
+                <div class="form-error-msg" id="err-email">Please enter a valid email address.</div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="form-message">Message</label>
+                <textarea id="form-message" class="form-control-glow" placeholder="Your message here..."
+                  required></textarea>
+                <div class="form-error-msg" id="err-message">Please enter a message (min 10 characters).</div>
+              </div>
+              <button type="submit" class="btn-glow btn-primary-glow w-100" id="form-submit-btn">
+                <i class="bi bi-send-fill"></i> Send Message
+              </button>
+              <p class="form-submit-note">
+                <i class="bi bi-info-circle me-1"></i>
+                This form collects your message. Connect a backend service (e.g. EmailJS / Formspree) to enable email
+                delivery.
+              </p>
+              <div class="form-success-msg" id="form-success" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                Thank you! Your message has been recorded. I'll get back to you soon.
+              </div>
+            </form>
+          </div>
+      </div><!-- /.contact-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+  FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container-xl">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <span class="footer-logo gradient-text">Nirmal C</span>
+          <p class="footer-tagline">AI &amp; Data Science · Portfolio</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/Nirmal-46" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="GitHub profile" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/nirmal-here?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn profile" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.instagram.com/_captain_culprit_18?igsh=MW9lMDI4Y3VrNnJkcQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram profile" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="mailto:captainculprit2007@gmail.com" class="footer-social-btn" aria-label="Send Email" title="Email">
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+          <button type="button" class="footer-top-btn" id="footer-top-btn" aria-label="Scroll to top" title="Back to top">
+            <i class="bi bi-arrow-up"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; <span id="current-year"></span> <strong>Nirmal C</strong>. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════
+  CERTIFICATE PREVIEW MODAL / LIGHTBOX
+══════════════════════════════════════════════════════ -->
+  <div class="cert-modal-overlay" id="cert-modal-overlay" role="dialog" aria-modal="true"
+    aria-labelledby="cert-modal-title" aria-hidden="true">
+    <div class="cert-modal">
+      <div class="cert-modal-header">
+        <button type="button" class="btn-cert-back" id="cert-modal-back-btn" aria-label="Back to Achievements" title="Back to Achievements">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+        <div class="cert-modal-info">
+          <h3 class="cert-modal-title gradient-text" id="cert-modal-title">Certificate Preview</h3>
+          <div class="cert-modal-meta">
+            <span id="cert-modal-org">Issuer Organization</span>
+            <span class="cert-modal-badge" id="cert-modal-date">2026</span>
+          </div>
+        </div>
+        <div class="cert-modal-controls">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="cert-modal-action-btn" id="cert-modal-open-tab" title="Open original image in new tab" aria-label="Open original image in new tab">
+            <i class="bi bi-box-arrow-up-right"></i>
+          </a>
+          <button type="button" class="cert-modal-close" id="cert-modal-close" aria-label="Close certificate preview">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="cert-modal-body">
+        <div class="cert-img-wrapper">
+          <img src="" alt="Certificate" id="cert-modal-img" class="cert-modal-img" />
+        </div>
+      </div>
+
+      <div class="cert-modal-footer">
+        <span class="cert-modal-footer-hint">
+          <i class="bi bi-shield-check me-1" style="color:var(--accent-b)"></i>
+          Verified credential from official issuer
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+  ADMIN LOGIN MODAL
+══════════════════════════════════════════════════════ -->
+  <div class="admin-modal-overlay" id="admin-login-overlay" role="dialog" aria-modal="true"
+    aria-labelledby="admin-login-title" aria-hidden="true">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h2 class="admin-modal-title gradient-text" id="admin-login-title">
+          <i class="bi bi-shield-lock-fill me-2"></i>Admin Access
+        </h2>
+        <button class="admin-modal-close" id="admin-login-close" aria-label="Close admin login">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="admin-notice">
+        <i class="bi bi-info-circle-fill me-2" style="color:var(--accent-b)"></i>
+        <strong>Security Notice:</strong> This login requires backend authentication.
+        Credentials are never stored in the frontend code.
+        Connect a secure authentication API before deploying.
+      </div>
+
+      <form id="admin-login-form" novalidate>
+        <div class="admin-field-group">
+          <label class="admin-field-label" for="admin-email">Email</label>
+          <input type="email" id="admin-email" class="form-control-glow" placeholder="admin@example.com"
+            autocomplete="username" />
+        </div>
+        <div class="admin-field-group">
+          <label class="admin-field-label" for="admin-password">Password</label>
+          <input type="password" id="admin-password" class="form-control-glow" placeholder="••••••••••"
+            autocomplete="current-password" />
+        </div>
+        <div id="admin-login-error"
+          style="display:none; font-size:0.82rem; color:#ef4444; padding:0.6rem 0.8rem; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); border-radius:8px; margin-bottom:1rem;">
+          <i class="bi bi-exclamation-triangle-fill me-1"></i>
+          <!-- TODO: Replace with real backend error message -->
+          Demo mode: authentication endpoint not connected.
+        </div>
+        <div style="display:flex; gap:0.75rem; margin-top:1.5rem;">
+          <button type="submit" class="btn-glow btn-primary-glow flex-fill" id="admin-login-btn">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </button>
+          <button type="button" class="btn-glow btn-outline-glow" id="admin-login-cancel">
+            Cancel
+          </button>
+        </div>
+      </form>
+
+      <!-- TODO: Integrate with your backend authentication endpoint.
+         Use secure password hashing (bcrypt/argon2) server-side.
+         Never store plaintext passwords anywhere.
+         Use HTTPS and HTTP-only cookies for session management. -->
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+  ADMIN DASHBOARD
+══════════════════════════════════════════════════════ -->
+  <div class="admin-dash-overlay" id="admin-dash-overlay" role="dialog" aria-modal="true" aria-label="Admin Dashboard"
+    aria-hidden="true">
+
+    <!-- Dashboard navbar -->
+    <div class="admin-dash-nav">
+      <div class="admin-dash-logo">
+        <i class="bi bi-grid-3x3-gap-fill"></i>
+        <span>Portfolio <span class="gradient-text">Admin</span></span>
+      </div>
+      <div class="admin-dash-actions">
+        <button class="btn-glow btn-outline-glow btn-sm py-1 px-3" style="font-size:0.82rem;" id="admin-preview-btn">
+          <i class="bi bi-eye-fill me-1"></i> Preview
+        </button>
+        <button class="btn-glow"
+          style="background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.3); color:#ef4444; font-size:0.82rem; padding:0.4rem 0.9rem; border-radius:var(--radius-full);"
+          id="admin-logout-btn">
+          <i class="bi bi-box-arrow-right me-1"></i> Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- Dashboard body -->
+    <div class="admin-dash-body">
+
+      <!-- Welcome bar -->
+      <div class="glass-card p-3 mb-3" style="display:flex; align-items:center; gap:1rem;">
+        <div
+          style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent-a),var(--accent-b));display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;">
+          <i class="bi bi-person-circle"></i>
+        </div>
+        <div>
+          <div style="font-weight:700; font-size:1.05rem;">Welcome back, <span class="gradient-text">Admin</span></div>
+          <div style="font-size:0.82rem; color:var(--text-muted);">Manage your portfolio content below.</div>
+        </div>
+        <div class="ms-auto admin-save-note" style="max-width:280px; margin:0;">
+          <i class="bi bi-exclamation-triangle-fill me-1" style="color:var(--accent-b)"></i>
+          Changes shown here require backend integration to persist after page refresh.
+        </div>
+      </div>
+
+      <!-- Section tabs -->
+      <div class="admin-section-tabs" role="tablist">
+        <button class="admin-tab-btn active" data-admin-tab="home" role="tab"><i
+            class="bi bi-house-fill me-1"></i>Home</button>
+        <button class="admin-tab-btn" data-admin-tab="about" role="tab"><i
+            class="bi bi-person-fill me-1"></i>About</button>
+        <button class="admin-tab-btn" data-admin-tab="skills" role="tab"><i class="bi bi-tools me-1"></i>Skills</button>
+        <button class="admin-tab-btn" data-admin-tab="projects" role="tab"><i
+            class="bi bi-folder-fill me-1"></i>Projects</button>
+        <button class="admin-tab-btn" data-admin-tab="experience" role="tab"><i
+            class="bi bi-briefcase-fill me-1"></i>Experience</button>
+        <button class="admin-tab-btn" data-admin-tab="achievements" role="tab"><i
+            class="bi bi-trophy-fill me-1"></i>Achievements</button>
+        <button class="admin-tab-btn" data-admin-tab="education" role="tab"><i
+            class="bi bi-mortarboard-fill me-1"></i>Education</button>
+        <button class="admin-tab-btn" data-admin-tab="contact" role="tab"><i
+            class="bi bi-envelope-fill me-1"></i>Contact</button>
+        <button class="admin-tab-btn" data-admin-tab="messages" role="tab"><i
+            class="bi bi-chat-left-text-fill me-1"></i>Inquiries <span class="badge bg-danger ms-1" id="admin-msg-badge" style="display:none;">0</span></button>
+      </div>
+
+      <!-- ── Home Panel ── -->
+      <div class="admin-panel active" id="admin-panel-home">
+        <div class="admin-panel-title"><i class="bi bi-house-fill"></i> Home Section</div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="glass-card p-3">
+              <div class="admin-field-group">
+                <label class="admin-field-label" for="admin-display-name">Display Name</label>
+                <input type="text" id="admin-display-name" class="form-control-glow" value="Nirmal C" />
+              </div>
+              <div class="admin-field-group">
+                <label class="admin-field-label" for="admin-hero-intro">Introduction Text</label>
+                <textarea id="admin-hero-intro" class="form-control-glow"
+                  rows="4">Passionate about the intersection of Artificial Intelligence, Data Science, and Frontend Development.</textarea>
+              </div>
+              <button class="btn-glow btn-primary-glow mt-2" onclick="adminSaveHome()">
+                <i class="bi bi-save-fill me-1"></i> Save Home
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="glass-card p-3">
+              <div class="admin-field-group">
+                <label class="admin-field-label" for="admin-profile-img">Profile Photo URL</label>
+                <div class="d-flex gap-2 mb-2">
+                  <input type="text" id="admin-profile-img" class="form-control-glow flex-fill"
+                    placeholder="profile.jpeg or https://..." />
+                  <button class="btn-glow btn-primary-glow" style="white-space:nowrap;" onclick="adminUpdatePhoto()">
+                    <i class="bi bi-image-fill me-1"></i> Update
+                  </button>
+                </div>
+              </div>
+              <div class="admin-field-group mt-3">
+                <label class="admin-field-label" for="admin-photo-file">Upload Image File to Server</label>
+                <input type="file" id="admin-photo-file" class="form-control-glow" accept="image/*" onchange="adminUploadPhotoFile(event)" />
+              </div>
+              <p class="admin-save-note mt-2">
+                Upload a new photo file directly or paste an image URL to update your hero profile image.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── About Panel ── -->
+      <div class="admin-panel" id="admin-panel-about">
+        <div class="admin-panel-title"><i class="bi bi-person-fill"></i> About Section</div>
+        <div class="glass-card p-3">
+          <div class="admin-field-group">
+            <label class="admin-field-label" for="admin-about-desc">Description</label>
+            <textarea id="admin-about-desc" class="form-control-glow"
+              rows="5">Hi! I'm Nirmal C, a first-year B.Tech AI &amp; Data Science student at KPR Institute...</textarea>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="admin-field-group">
+                <label class="admin-field-label" for="admin-about-focus">Current Focus</label>
+                <input type="text" id="admin-about-focus" class="form-control-glow"
+                  value="React, Gen AI, UI/UX Design" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="admin-field-group">
+                <label class="admin-field-label" for="admin-about-goals">Career Goals</label>
+                <input type="text" id="admin-about-goals" class="form-control-glow"
+                  value="AI/ML Engineer or Full-Stack Developer" />
+              </div>
+            </div>
+          </div>
+          <button class="btn-glow btn-primary-glow" onclick="adminSaveAbout()">
+            <i class="bi bi-save-fill me-1"></i> Save About
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Skills Panel ── -->
+      <div class="admin-panel" id="admin-panel-skills">
+        <div class="admin-panel-title"><i class="bi bi-tools"></i> Skills</div>
+        <div class="glass-card p-3 mb-3">
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1rem;">Current skills are defined in
+            the HTML. Use the controls below to manage categories.</p>
+          <div id="admin-skills-list">
+            <div class="admin-list-item">
+              <div class="admin-list-item-info">
+                <div class="admin-list-item-title">HTML5</div>
+                <div class="admin-list-item-sub">Frontend</div>
+              </div>
+              <div class="admin-item-actions">
+                <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+                <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+              </div>
+            </div>
+            <div class="admin-list-item">
+              <div class="admin-list-item-info">
+                <div class="admin-list-item-title">Python</div>
+                <div class="admin-list-item-sub">Programming</div>
+              </div>
+              <div class="admin-item-actions">
+                <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+                <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+              </div>
+            </div>
+          </div>
+          <button class="btn-glow btn-primary-glow mt-3" onclick="adminAddSkill()">
+            <i class="bi bi-plus-lg me-1"></i> Add Skill
+          </button>
+        </div>
+        <div class="admin-save-note">
+          <i class="bi bi-info-circle-fill me-1"></i>
+          Full skill management requires backend integration. Edit <code>index.html</code> directly for now.
+        </div>
+      </div>
+
+      <!-- ── Projects Panel ── -->
+      <div class="admin-panel" id="admin-panel-projects">
+        <div class="admin-panel-title"><i class="bi bi-folder-fill"></i> Projects</div>
+        <div id="admin-projects-list" class="mb-3">
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">Tourism &amp; Travel Booking Platform</div>
+              <div class="admin-list-item-sub">HTML · CSS · JS · Bootstrap · Backend</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">Portfolio Website</div>
+              <div class="admin-list-item-sub">HTML · CSS · JS · Bootstrap</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">Todo List App</div>
+              <div class="admin-list-item-sub">HTML · CSS · JS · Bootstrap · LocalStorage</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+        </div>
+        <button class="btn-glow btn-primary-glow" onclick="adminAddProject()">
+          <i class="bi bi-plus-lg me-1"></i> Add Project
+        </button>
+      </div>
+
+      <!-- ── Experience Panel ── -->
+      <div class="admin-panel" id="admin-panel-experience">
+        <div class="admin-panel-title"><i class="bi bi-briefcase-fill"></i> Experience</div>
+        <div id="admin-exp-list" class="mb-3">
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">Cybersecurity Awareness Campaign</div>
+              <div class="admin-list-item-sub">Volunteer &amp; Participant · 2025</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">HDCA 1-Year Diploma Trainee</div>
+              <div class="admin-list-item-sub">CSC Computer Software College · Grade 'A' · 2024–2025</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">Full-Stack Web Dev Trainee</div>
+              <div class="admin-list-item-sub">NxtWave Academy (CCBP 4.0) · 2025–Present</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">400m Hurdles Zonal Runner-Up</div>
+              <div class="admin-list-item-sub">School Zonal &amp; District Athletics · 2024–2025</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+        </div>
+        <button class="btn-glow btn-primary-glow" onclick="adminAddExperience()">
+          <i class="bi bi-plus-lg me-1"></i> Add Experience
+        </button>
+      </div>
+
+      <!-- ── Achievements Panel ── -->
+      <div class="admin-panel" id="admin-panel-achievements">
+        <div class="admin-panel-title"><i class="bi bi-trophy-fill"></i> Achievements</div>
+        <div id="admin-ach-list" class="mb-3">
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">Fortinet NSE 1 &amp; NSE 2 Certified</div>
+              <div class="admin-list-item-sub">Fortinet Training Institute · 2026</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">Static &amp; Responsive Web Certificates</div>
+              <div class="admin-list-item-sub">NxtWave CCBP 4.0 · Exam Verified · 2026</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">HDCA Diploma (Grade 'A')</div>
+              <div class="admin-list-item-sub">CSC Computer Software College · 2024–2025</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">MATLAB Onramp &amp; Frameboxx Scholarship</div>
+              <div class="admin-list-item-sub">MathWorks &amp; Frameboxx · 2026</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+        </div>
+        <button class="btn-glow btn-primary-glow" onclick="adminAddAchievement()">
+          <i class="bi bi-plus-lg me-1"></i> Add Achievement
+        </button>
+      </div>
+
+      <!-- ── Education Panel ── -->
+      <div class="admin-panel" id="admin-panel-education">
+        <div class="admin-panel-title"><i class="bi bi-mortarboard-fill"></i> Education</div>
+        <div id="admin-edu-list" class="mb-3">
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">B.Tech – AI &amp; Data Science (CGPA: 8.06)</div>
+              <div class="admin-list-item-sub">KPR Institute · 2025–2029</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+          <div class="admin-list-item">
+            <div class="admin-list-item-info">
+              <div class="admin-list-item-title">Higher Secondary (Class 12)</div>
+              <div class="admin-list-item-sub">Kongu Matric Hr Sec School · State Board · 2025</div>
+            </div>
+            <div class="admin-item-actions">
+              <button class="btn-admin-edit" title="Edit"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn-admin-del" title="Delete"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
+        </div>
+        <button class="btn-glow btn-primary-glow" onclick="adminAddEducation()">
+          <i class="bi bi-plus-lg me-1"></i> Add Education
+        </button>
+      </div>
+
+      <!-- ── Contact Panel ── -->
+      <div class="admin-panel" id="admin-panel-contact">
+        <div class="admin-panel-title"><i class="bi bi-envelope-fill"></i> Contact Info</div>
+        <div class="glass-card p-3">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="admin-field-group">
+                <label class="admin-field-label" for="admin-contact-email">Email</label>
+                <input type="email" id="admin-contact-email" class="form-control-glow"
+                  value="captainculprit2007@gmail.com" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="admin-field-group">
+                <label class="admin-field-label" for="admin-contact-github">GitHub URL</label>
+                <input type="url" id="admin-contact-github" class="form-control-glow"
+                  value="https://github.com/Nirmal-46" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="admin-field-group">
+                <label class="admin-field-label" for="admin-contact-linkedin">LinkedIn URL</label>
+                <input type="url" id="admin-contact-linkedin" class="form-control-glow"
+                  value="https://www.linkedin.com/in/nirmal-here?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="admin-field-group">
+                <label class="admin-field-label" for="admin-contact-instagram">Instagram URL</label>
+                <input type="url" id="admin-contact-instagram" class="form-control-glow"
+                  value="https://www.instagram.com/_captain_culprit_18?igsh=MW9lMDI4Y3VrNnJkcQ%3D%3D&amp;utm_source=qr" />
+              </div>
+            </div>
+          </div>
+          <button class="btn-glow btn-primary-glow mt-2" onclick="adminSaveContact()">
+            <i class="bi bi-save-fill me-1"></i> Save Contact Info
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Messages / Inquiries Panel ── -->
+      <div class="admin-panel" id="admin-panel-messages">
+        <div class="admin-panel-title"><i class="bi bi-chat-left-text-fill"></i> Contact Inquiries</div>
+        <div class="glass-card p-3">
+          <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:1rem;">
+            Real-time messages sent by visitors through the contact form on your portfolio.
+          </p>
+          <div id="admin-messages-list">
+            <div class="text-center py-4 text-muted"><i class="bi bi-inbox fs-2 d-block mb-2"></i>No inquiries received yet.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.admin-dash-body -->
+  </div><!-- /#admin-dash-overlay -->
+
+  <!-- ══════════════════════════════════════════════════════
+  ADMIN ITEM CREATE / EDIT MODAL
+  ══════════════════════════════════════════════════════ -->
+  <div class="admin-modal-overlay" id="admin-item-modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" style="z-index:9998;">
+    <div class="admin-modal" style="max-width:580px; max-height:90vh; overflow-y:auto;">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title gradient-text" id="admin-item-modal-title">
+          <i class="bi bi-pencil-square me-2"></i>Edit Item
+        </h3>
+        <button class="admin-modal-close" id="admin-item-modal-close" type="button" aria-label="Close modal">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <form id="admin-item-form">
+        <div id="admin-item-fields">
+          <!-- Dynamic form fields populated by script.js -->
+        </div>
+        <div style="display:flex; gap:0.75rem; margin-top:1.5rem;">
+          <button type="submit" class="btn-glow btn-primary-glow flex-fill" id="admin-item-save-btn">
+            <i class="bi bi-check2-circle me-1"></i> Save to Backend
+          </button>
+          <button type="button" class="btn-glow btn-outline-glow" id="admin-item-cancel-btn">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Portfolio JS -->
+  <script src="script.js"></script>
+</body>
+
+</html>
