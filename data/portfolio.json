@@ -41,6 +41,19 @@
   "projects": [
     {
       "id": "proj-1",
+      "title": "Portfolio Website",
+      "tag": "web",
+      "badge": "Frontend",
+      "badgeIcon": "bi bi-lightning-fill",
+      "desc": "This very portfolio — a futuristic, fully responsive personal website with dark/light mode, glassmorphism, scroll animations, and an admin dashboard.",
+      "image": "responsive.PNG",
+      "placeholderIcon": "bi bi-window-stack",
+      "tags": ["HTML5", "CSS3", "JS", "Bootstrap"],
+      "liveUrl": "https://nirmal-portfolio-18.netlify.app/",
+      "githubUrl": "https://github.com/Nirmal-46/CodeOrbit_Portfolio18"
+    },
+    {
+      "id": "proj-2",
       "title": "Tourism & Travel Booking Platform",
       "tag": "web",
       "badge": "Tourism Web App",
@@ -49,34 +62,21 @@
       "image": "",
       "placeholderIcon": "bi bi-compass-fill",
       "tags": ["HTML5", "CSS3", "JS", "Bootstrap", "Backend"],
-      "liveUrl": "#",
-      "githubUrl": "https://github.com/Nirmal-46"
-    },
-    {
-      "id": "proj-2",
-      "title": "Personal Portfolio Website",
-      "tag": "web",
-      "badge": "Web Development",
-      "badgeIcon": "bi bi-layout-text-window-reverse",
-      "desc": "A dark/light theme cyber-aesthetic portfolio with responsive layout, custom particle canvas, certificate view modal, and dynamic interactivity. Designed and coded from scratch using vanilla CSS and JavaScript.",
-      "image": "responsive.PNG",
-      "placeholderIcon": "",
-      "tags": ["HTML5", "CSS3", "JavaScript", "Bootstrap 5"],
-      "liveUrl": "index.html",
-      "githubUrl": "https://github.com/Nirmal-46"
+      "liveUrl": "https://wandora-46.netlify.app",
+      "githubUrl": "https://github.com/Nirmal-46/Wandora-Tourism-Web"
     },
     {
       "id": "proj-3",
-      "title": "Todo List App",
+      "title": "Donexa — Task & Todo Manager",
       "tag": "web",
       "badge": "Task Manager",
       "badgeIcon": "bi bi-check-circle-fill",
       "desc": "A clean, responsive, and intuitive task management application with real-time task additions, completion toggling, priority filters, and persistent local storage.",
       "image": "",
       "placeholderIcon": "bi bi-check2-square",
-      "tags": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "LocalStorage"],
-      "liveUrl": "#",
-      "githubUrl": "https://github.com/Nirmal-46"
+      "tags": ["HTML5", "CSS3", "JS", "Bootstrap", "LocalStorage"],
+      "liveUrl": "https://donexa-18.netlify.app",
+      "githubUrl": "https://github.com/Nirmal-46/codeOrbit_Todo_list"
     }
   ],
   "experience": [
